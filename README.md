@@ -13,8 +13,8 @@
 
 Visiting the challenge URL presents a dashboard styled as a **Secure Facility Dossier System** for Site-19.
 
-![Main Dashboard](<img width="1123" height="581" alt="Capture d’écran 2026-07-19 231754" src="https://github.com/user-attachments/assets/ef61de8c-74c8-490d-83d6-75c132b268c3" />
-)
+<img width="1123" height="581" alt="Capture d’écran 2026-07-19 231754" src="https://github.com/user-attachments/assets/ef61de8c-74c8-490d-83d6-75c132b268c3" />
+
 
 The page contains an **Employee Ingress** button. Clicking this brings us to `/employee`, which returns a **403 Forbidden** page.  
 This 403 page is unusually verbose and reveals multiple technical clues:
@@ -26,8 +26,8 @@ This 403 page is unusually verbose and reveals multiple technical clues:
 - `internal request: GET /employee/session HTTP/1.1`
 - `required internal header: X-Employee-Gate: internal`
 
-![403 Forbidden Page with technical hints](<img width="951" height="941" alt="Capture d’écran 2026-07-19 154623" src="https://github.com/user-attachments/assets/eb90e376-274c-48db-885a-f4627cf8d8c9" />
-)
+<img width="951" height="941" alt="Capture d’écran 2026-07-19 154623" src="https://github.com/user-attachments/assets/eb90e376-274c-48db-885a-f4627cf8d8c9" />
+
 
 Additionally, inspecting the source of `/login` reveals a useful bulletin:
 
@@ -35,8 +35,8 @@ Additionally, inspecting the source of `/login` reveals a useful bulletin:
 <p class="muted">Recovery bulletin: Cassie from Records has been assigned to the harness intake desk. Temporary access should use the identity relay.</p>
 ```
 
-![Login page source showing the Cassie hint](<img width="953" height="975" alt="Capture d’écran 2026-07-19 153044" src="https://github.com/user-attachments/assets/60359959-5750-4e2f-99d8-2fc4b5759d9a" />
-)
+<img width="953" height="975" alt="Capture d’écran 2026-07-19 153044" src="https://github.com/user-attachments/assets/60359959-5750-4e2f-99d8-2fc4b5759d9a" />
+
 
 ---
 
@@ -48,15 +48,15 @@ Because of the `/employee` hints, we initially focused on request smuggling with
 - **H2.CL Smuggling:** Attempted to smuggle `GET /employee/session` via the `raw_request` form field.
 - **Header Injection:** Tried to inject `X-Employee-Gate: internal` using various splitting/encoding techniques.
 
-![Burp Suite failed smuggling attempt](<img width="951" height="946" alt="Capture d’écran 2026-07-19 153558" src="https://github.com/user-attachments/assets/98da42d1-ec3e-4ae1-ab9c-792ce23ef5bb" />
-)
+<img width="951" height="946" alt="Capture d’écran 2026-07-19 153558" src="https://github.com/user-attachments/assets/98da42d1-ec3e-4ae1-ab9c-792ce23ef5bb" />
+
 
 We also examined `/jwt`, which displays a signed JWT and this note:
 
 > *"The signed browser token is used for telemetry correlation, not authorization. Signature validation is enforced."*
 
-![JWT Token Audit page](<img width="951" height="946" alt="Capture d’écran 2026-07-19 153558" src="https://github.com/user-attachments/assets/dad09d9b-6662-4537-bbe0-63dd8df92580" />
-)
+<img width="951" height="946" alt="Capture d’écran 2026-07-19 153558" src="https://github.com/user-attachments/assets/dad09d9b-6662-4537-bbe0-63dd8df92580" />
+
 
 This confirmed JWT manipulation was a deliberate red herring.
 
@@ -93,8 +93,8 @@ helper: read_file(path)
 flag copy: /flag.txt
 ```
 
-![Briefing Template page showing the read_file helper](<img width="958" height="972" alt="Capture d’écran 2026-07-19 153205" src="https://github.com/user-attachments/assets/c6f4fcca-e72f-4cdf-8b0c-eea4a2f8d785" />
-)
+<img width="958" height="972" alt="Capture d’écran 2026-07-19 153205" src="https://github.com/user-attachments/assets/c6f4fcca-e72f-4cdf-8b0c-eea4a2f8d785" />
+
 
 This is a straightforward **Server-Side Template Injection (SSTI)** surface with a dangerous file-read helper exposed.
 
@@ -117,8 +117,8 @@ Then we used the provided helper directly:
 {{ read_file("/flag.txt") }}
 ```
 
-![Rendered preview displaying the flag](<img width="952" height="909" alt="Capture d’écran 2026-07-19 152532" src="https://github.com/user-attachments/assets/4952be42-71f1-4ca8-8071-8b1adf23b9b4" />
-)
+<img width="952" height="909" alt="Capture d’écran 2026-07-19 152532" src="https://github.com/user-attachments/assets/4952be42-71f1-4ca8-8071-8b1adf23b9b4" />
+
 
 The rendered preview returned the flag immediately.
 
