@@ -49,7 +49,7 @@ Because of the `/employee` hints, we initially focused on request smuggling with
 - **Header Injection:** Tried to inject `X-Employee-Gate: internal` using various splitting/encoding techniques.
 
 
-<img width="951" height="1000" alt="Capture d’écran 2026-07-19 153731" src="https://github.com/user-attachments/assets/13756e6e-3496-497a-aa40-e6fdb0f35cf6" />
+<img width="958" height="972" alt="Capture d’écran 2026-07-19 153205" src="https://github.com/user-attachments/assets/c6f4fcca-e72f-4cdf-8b0c-eea4a2f8d785" />
 
 
 We also examined `/jwt`, which displays a signed JWT and this note:
@@ -94,7 +94,7 @@ helper: read_file(path)
 flag copy: /flag.txt
 ```
 
-<img width="958" height="972" alt="Capture d’écran 2026-07-19 153205" src="https://github.com/user-attachments/assets/c6f4fcca-e72f-4cdf-8b0c-eea4a2f8d785" />
+<img width="951" height="1000" alt="Capture d’écran 2026-07-19 153731" src="https://github.com/user-attachments/assets/13756e6e-3496-497a-aa40-e6fdb0f35cf6" />
 
 
 This is a straightforward **Server-Side Template Injection (SSTI)** surface with a dangerous file-read helper exposed.
