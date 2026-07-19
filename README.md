@@ -13,7 +13,7 @@
 
 Visiting the challenge URL presents a dashboard styled as a **Secure Facility Dossier System** for Site-19.
 
-![Main Dashboard](<img width="1123" height="581" alt="image" src="https://github.com/user-attachments/assets/108e3369-9eb3-411a-9b7e-4969a47a46c0" />
+![Main Dashboard](<img width="1123" height="581" alt="Capture d’écran 2026-07-19 231754" src="https://github.com/user-attachments/assets/ef61de8c-74c8-490d-83d6-75c132b268c3" />
 )
 
 The page contains an **Employee Ingress** button. Clicking this brings us to `/employee`, which returns a **403 Forbidden** page.  
@@ -26,7 +26,8 @@ This 403 page is unusually verbose and reveals multiple technical clues:
 - `internal request: GET /employee/session HTTP/1.1`
 - `required internal header: X-Employee-Gate: internal`
 
-![403 Forbidden Page with technical hints](INSERT_IMAGE_2_HERE)
+![403 Forbidden Page with technical hints](<img width="951" height="941" alt="Capture d’écran 2026-07-19 154623" src="https://github.com/user-attachments/assets/eb90e376-274c-48db-885a-f4627cf8d8c9" />
+)
 
 Additionally, inspecting the source of `/login` reveals a useful bulletin:
 
