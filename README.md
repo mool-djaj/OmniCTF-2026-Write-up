@@ -49,15 +49,14 @@ Because of the `/employee` hints, we initially focused on request smuggling with
 - **Header Injection:** Tried to inject `X-Employee-Gate: internal` using various splitting/encoding techniques.
 
 
-<img width="958" height="972" alt="Capture d’écran 2026-07-19 153205" src="https://github.com/user-attachments/assets/c6f4fcca-e72f-4cdf-8b0c-eea4a2f8d785" />
+<img width="951" height="946" alt="Capture d’écran 2026-07-19 153558" src="https://github.com/user-attachments/assets/dad09d9b-6662-4537-bbe0-63dd8df92580" />
 
 
 We also examined `/jwt`, which displays a signed JWT and this note:
 
 > *"The signed browser token is used for telemetry correlation, not authorization. Signature validation is enforced."*
 
-<img width="951" height="946" alt="Capture d’écran 2026-07-19 153558" src="https://github.com/user-attachments/assets/dad09d9b-6662-4537-bbe0-63dd8df92580" />
-
+<img width="958" height="972" alt="Capture d’écran 2026-07-19 153205" src="https://github.com/user-attachments/assets/c6f4fcca-e72f-4cdf-8b0c-eea4a2f8d785" />
 
 This confirmed JWT manipulation was a deliberate red herring.
 
