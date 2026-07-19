@@ -48,7 +48,8 @@ Because of the `/employee` hints, we initially focused on request smuggling with
 - **H2.CL Smuggling:** Attempted to smuggle `GET /employee/session` via the `raw_request` form field.
 - **Header Injection:** Tried to inject `X-Employee-Gate: internal` using various splitting/encoding techniques.
 
-<img width="951" height="946" alt="Capture d’écran 2026-07-19 153558" src="https://github.com/user-attachments/assets/98da42d1-ec3e-4ae1-ab9c-792ce23ef5bb" />
+
+<img width="951" height="1000" alt="Capture d’écran 2026-07-19 153731" src="https://github.com/user-attachments/assets/13756e6e-3496-497a-aa40-e6fdb0f35cf6" />
 
 
 We also examined `/jwt`, which displays a signed JWT and this note:
